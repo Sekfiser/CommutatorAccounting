@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Редактирование коммутатора";
+}
+
+@model CommutatorAccounting.Models.Commutator
+
+<div class="row justify-content-center">
+    <h2 class="col-md-auto">@ViewData["Title"]</h2>
+</div>
+<form asp-action="Edit" asp-controller="Commutator" asp-route-id="@Model.Id">
+    <div class="row justify-content-center">
+        <div class="card col-6 px-0">
+            <div class="card-header">Заполните информацию о коммутаторе</div>
+            <div class="card-body">
+
+                <fieldset>
+                    <div class="mb-3">
+                        <label for="model" class="form-label">Модель</label>
+                        <input type="text" asp-for="Model" id="model" class="form-control" placeholder="Модель">
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label for="ip" class="form-label">IP</label>
+                            <input type="text" asp-for="Ip" id="ip" class="form-control" placeholder="IP">
+                        </div>
+                        <div class="col">
+                            <label for="mac" class="form-label">MAC</label>
+                            <input type="text" asp-for="Mac" id=" mac" class="form-control" placeholder="MAC">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="vlan" class="form-label">Управляющий VLAN</label>
+                        <input type="text" asp-for="Vlan" id="vlan" class="form-control" placeholder="Управляющий VLAN">
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label for="serialNumber" class="form-label">Серийный номер</label>
+                            <input type="text" asp-for="SerialNumber" id="serialNumber" class="form-control" placeholder="Серийный номер">
+                        </div>
+                        <div class="col">
+                            <label for="stockNumber" class="form-label">Инвентарный номер</label>
+                            <input type="text" asp-for="StockNumber" id="stockNumber" class="form-control" placeholder="Инвентарный номер">
+                        </div>
+                    </div>
+                    <div class="mb-3 row justify-content-between">
+                        <div class="col">
+                            <label for="purchaseDate" class="form-label">Дата покупки</label>
+                            <input type="date" asp-for="PurchaseDate" id="purchaseDate" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="installationDate" class="form-label">Дата установки</label>
+                            <input type="date" asp-for="InstallationDate" id="installationDate" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="installationFloor" class="form-label">Этаж</label>
+                            <input type="number" asp-for="InstallationFloor" id="installationFloor" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Комментарий</label>
+                        <textarea type="text" asp-for="Comment" id="comment" class="form-control" placeholder="Комментарий"></textarea>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="card-footer">
+                <row class="row justify-content-between px-2">
+                    <a class="col-md-auto btn btn-secondary" asp-controller="Commutator" asp-action="List">Назад</a>
+                    <input class="col-md-auto btn btn-primary" type="submit" value="Сохранить">
+                </row>
+            </div>
+        </div>
+    </div>
+</form>
