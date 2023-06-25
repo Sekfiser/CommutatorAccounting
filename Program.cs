@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<ApplicationContext>(options => { options.UseSqlServer(connection); });
+builder.Services.AddDbContext<CommutatorsContext>(options => { options.UseSqlServer(connection); });
 
 builder.Services.AddControllersWithViews();
 
@@ -26,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Commutator}/{action=List}/{id?}");
+    pattern: "{controller=Commutator}/{action=Index}/");
 
 app.Run();

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Домашняя страница";
+}
+@model CommutatorExtendedModel
+<div class="row mt-2 mx-2">
+    <div class="card px-0">
+        <form method="get">
+            <div class="card-body">
+                <div class="row">
+                    <label class="col-md-auto mt-1 pt-1">Поиск</label>
+                    <input class="form-control col" name="searchString" placeholder="Введите текст для поиска" value="@ViewBag.SearchString" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" class="btn btn-primary" value="Искать" />
+                <a class="btn btn-secondary" asp-controller="Commutator" asp-action="AdvancedSearch">Расширенный поиск</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row mt-2 mx-2">
+    @await Html.PartialAsync("Pages", Model)
+</div>

@@ -2,7 +2,7 @@
 {
     public class Commutator
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string? Model { get; set; }
         public string? Ip { get; set; }
         public string? Mac { get; set; }

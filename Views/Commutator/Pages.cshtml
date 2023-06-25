@@ -1,0 +1,281 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, CommutatorAccounting
+@using CommutatorAccounting.Models
+@model CommutatorExtendedModel
+
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr class="text-center align-middle">
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.IdSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    №
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.ModelSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Модель
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.IpSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    IP-адрес
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.MacSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    MAC-адрес
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.VlanSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Управляющий VLAN
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.SerialNumberSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Серийный номер
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.StockNumberSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Инвентарный номер
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.PurchaseDateSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Дата покупки
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.InstallationDateSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Дата установки
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.InstallationFloorSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Этаж
+                </a>
+            </th>
+            <th>
+                <a asp-action="@(ViewBag.Action)"
+                   asp-route-id="@(Model.SearchCommutator?.Id?.ToString())"
+                   asp-route-model="@(Model.SearchCommutator?.Model)"
+                   asp-route-ip="@(Model.SearchCommutator?.Ip)"
+                   asp-route-mac="@(Model.SearchCommutator?.Mac)"
+                   asp-route-vlan="@(Model.SearchCommutator?.Vlan)"
+                   asp-route-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+                   asp-route-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+                   asp-route-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+                   asp-route-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+                   asp-route-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+                   asp-route-comment="@(Model.SearchCommutator?.Comment)"
+                   asp-route-sortColumn="@Model.SortCommutatorModel.CommentSort"
+                   asp-route-searchstring="@ViewBag.SearchString">
+                    Комментарий
+                </a>
+            </th>
+            <th colspan="2">Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Commutator c in Model.Commutators)
+        {
+            <tr class="text-center align-middle">
+                <td>
+                    <b>@c.Id</b>
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.Model">
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.Ip">
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.Mac">
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.Vlan">
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.SerialNumber">
+                </td>
+                <td>
+                    <input class="form-control" readonly value="@c.StockNumber">
+                </td>
+                <td>
+                    <input type="text" class="form-control text-center" readonly value="@c.PurchaseDate?.ToString("d")">
+                </td>
+                <td>
+                    <input type="text" class="form-control text-center" readonly value="@c.InstallationDate?.ToString("d")">
+                </td>
+                <td>
+                    <input type="text" class="form-control text-center" readonly value="@c.InstallationFloor">
+                </td>
+                <td>
+                    <textarea class="form-control" readonly>@c.Comment</textarea>
+                </td>
+                <td>
+                    <div class="row justify-content-end">
+                        <a asp-controller="Commutator" asp-action="Edit" asp-route-id="@c.Id" class="col-sm-auto mx-3 btn btn-primary">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="row justify-content-center">
+                        <form name="Delete" asp-controller="Commutator" asp-action="Delete" asp-route-id="@c.Id" method="post">
+                            <button type="submit" class="col-sm-auto btn btn-primary">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<page-link page-action="@(ViewBag.Action)"
+           page-url-id="@(Model.SearchCommutator?.Id?.ToString())"
+           page-url-model="@(Model.SearchCommutator?.Model)"
+           page-url-ip="@(Model.SearchCommutator?.Ip)"
+           page-url-mac="@(Model.SearchCommutator?.Mac)"
+           page-url-vlan="@(Model.SearchCommutator?.Vlan)"
+           page-url-serialNumber="@(Model.SearchCommutator?.SerialNumber)"
+           page-url-stockNumber="@(Model.SearchCommutator?.StockNumber)"
+           page-url-purchaseDate="@(Model.SearchCommutator?.PurchaseDate.ToString())"
+           page-url-installationDate="@(Model.SearchCommutator?.InstallationDate.ToString())"
+           page-url-installationFloor="@(Model.SearchCommutator?.InstallationFloor)"
+           page-url-comment="@(Model.SearchCommutator?.Comment)"
+           page-model="@(Model.PageCommutatorModel)"
+           page-url-searchString="@ViewBag.SearchString"
+           page-url-sortColumn="@(Model.SortCommutatorModel.Current)"></page-link>

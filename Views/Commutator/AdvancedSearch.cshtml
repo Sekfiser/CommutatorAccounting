@@ -1,0 +1,66 @@
+﻿@model CommutatorExtendedModel
+
+<form asp-action="AdvancedSearch" asp-controller="Commutator" method="">
+    <div class="row justify-content-between mx-0 px-0">
+        <div class="card col-2 px-0 mx-0">
+            <div class="card-header text-center"><b>Расширенный поиск</b></div>
+            <div class="card-body">
+                <fieldset>
+                    <div class="mb-3">
+                        <label for="model" class="form-label">Номер</label>
+                        <input type="number" value="@Model.SearchCommutator.Id" name="id" id="id" class="form-control" placeholder="Номер">
+                    </div>
+                    <div class="mb-3">
+                        <label for="model" class="form-label">Модель</label>
+                        <input type="text" value="@Model.SearchCommutator.Model" name="model" id="model" class="form-control" placeholder="Модель">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ip" class="form-label">IP</label>
+                        <input type="text" value="@Model.SearchCommutator.Ip" name="ip" id="ip" class="form-control" placeholder="IP">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mac" class="form-label">MAC</label>
+                        <input type="text" value="@Model.SearchCommutator.Mac" name="mac" id="mac" class="form-control" placeholder="MAC">
+                    </div>
+                    <div class="mb-3">
+                        <label for="vlan" class="form-label">Управляющий VLAN</label>
+                        <input type="text" value="@Model.SearchCommutator.Vlan" name="vlan" id="vlan" class="form-control" placeholder="Управляющий VLAN">
+                    </div>
+                    <div class="mb-3">
+                        <label for="serialNumber" class="form-label">Серийный номер</label>
+                        <input type="text" value="@Model.SearchCommutator.SerialNumber" name="serialNumber" id="serialNumber" class="form-control" placeholder="Серийный номер">
+                    </div>
+                    <div class="mb-3">
+                        <label for="stockNumber" class="form-label">Инвентарный номер</label>
+                        <input type="text" value="@Model.SearchCommutator.StockNumber" name="stockNumber" id="stockNumber" class="form-control" placeholder="Инвентарный номер">
+                    </div>
+                    <div class="mb-3">
+                        <label for="purchaseDate" class="form-label">Дата покупки</label>
+                        <input type="date" value="@Model.SearchCommutator.PurchaseDate?.ToString("yyyy-MM-dd")" name="purchaseDate" id="purchaseDate" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="installationDate" class="form-label">Дата установки</label>
+                        <input type="date" value="@(Model.SearchCommutator.InstallationDate?.ToString("yyyy-MM-dd"))" name="installationDate" id="installationDate" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="installationFloor" class="form-label">Этаж</label>
+                        <input type="number" value="@Model.SearchCommutator.InstallationFloor" name="installationFloor" id="installationFloor" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Комментарий</label>
+                        <textarea type="text" value="@Model.SearchCommutator.Comment" name="comment" id="comment" class="form-control" placeholder="Комментарий"></textarea>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="card-footer">
+                <row class="row justify-content-between px-2">
+                    <a class="col-md-auto btn btn-secondary" asp-controller="Commutator" asp-action="Index">Назад</a>
+                    <input class="col-md-auto btn btn-primary" type="submit" value="Найти">
+                </row>
+            </div>
+        </div>
+        <div class="col-10 ps-0 ms-0 pe-1">
+            @await Html.PartialAsync("Pages", Model)
+        </div>
+</form>
+<script asp-append-version="true" src="/js/CommutatorMasks.js"></script>

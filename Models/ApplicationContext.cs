@@ -2,10 +2,10 @@
 
 namespace CommutatorAccounting.Models
 {
-    public class ApplicationContext : DbContext
+    public class CommutatorsContext : DbContext
     {
         public DbSet<Commutator> Commutators { get; set; } = null!;
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        public CommutatorsContext(DbContextOptions<CommutatorsContext> options)
             : base(options)
         {
             Database.EnsureCreated();
