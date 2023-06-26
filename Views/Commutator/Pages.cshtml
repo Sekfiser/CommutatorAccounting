@@ -246,14 +246,19 @@
                 </td>
                 <td>
                     <div class="row justify-content-end">
-                        <a asp-controller="Commutator" asp-action="Edit" asp-route-id="@c.Id" class="col-sm-auto mx-3 btn btn-primary">
-                            <i class="bi bi-pencil-fill"></i>
-                        </a>
+                        <form name="Edit" asp-controller="Commutator" asp-action="Edit" method="get">
+                            <input type="hidden" name="callbackLink" value="@(Context.Request.Path+Context.Request.QueryString)" />
+                            <input type="hidden" name="id" value="@c.Id" />
+                            <button type="submit" class="col-sm-auto mx-3 btn btn-primary">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                        </form>
                     </div>
                 </td>
                 <td>
                     <div class="row justify-content-center">
                         <form name="Delete" asp-controller="Commutator" asp-action="Delete" asp-route-id="@c.Id" method="post">
+                            <input type="hidden" name="callbackLink" value="@(Context.Request.Path+Context.Request.QueryString)" />
                             <button type="submit" class="col-sm-auto btn btn-primary">
                                 <i class="bi bi-x-lg"></i>
                             </button>

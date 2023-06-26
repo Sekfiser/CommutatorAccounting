@@ -15,9 +15,9 @@
                 <fieldset>
                     <div class="mb-3">
                         <label for="model" class="form-label">Модель</label>
-                        <input type="text" asp-for="Model" id="model" 
-                        required pattern="^.{2,}$"
-                        class="form-control" placeholder="TP-Link Archer C80 AC1900">
+                        <input type="text" asp-for="Model" id="model"
+                               required pattern="^.{2,}$"
+                               class="form-control" placeholder="TP-Link Archer C80 AC1900">
                     </div>
                     <div class="mb-3 row">
                         <div class="col">
@@ -61,13 +61,13 @@
                         <div class="col">
                             <label for="installationDate" class="form-label">Дата установки</label>
                             <input type="date" asp-for="InstallationDate" id="installationDate"
-                                   required min="1970-01-01"
+                                   min="1970-01-01"
                                    class="form-control">
                         </div>
                         <div class="col">
                             <label for="installationFloor" class="form-label">Этаж</label>
                             <input type="number" asp-for="InstallationFloor" id="installationFloor"
-                                   required min="-20" max="165"
+                                   min="-20" max="165"
                                    class="form-control" placeholder="1">
                         </div>
                     </div>
@@ -84,6 +84,22 @@
                 </row>
             </div>
         </div>
+        @if (ViewBag.ModelState != null)
+        {
+            <div class="row justify-content-center mt-3">
+                <div class="col-auto alert alert-warning">
+                    <ul>
+                        @foreach (var item in ViewBag.ModelState)
+                        {
+                            @foreach (var error in item.Value.Errors)
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
     </div>
 </form>
 <script asp-append-version="true" src="/js/CommutatorMasks.js"></script>

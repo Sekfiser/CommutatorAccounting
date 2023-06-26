@@ -150,30 +150,39 @@ namespace CommutatorAccounting.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCommutator(Commutator commutator)
         {
-            db.Commutators.Add(commutator);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Pages");
+            if (ModelState.IsValid)
+            {
+                db.Commutators.Add(commutator);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {   
+                ViewBag.ModelState = ModelState;
+                return View("Add", commutator);
+            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, string callbackLink = "~/")
         {
             if (id != null)
             {
                 Commutator commutator = new Commutator { Id = id.Value };
                 db.Entry(commutator).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return LocalRedirect(callbackLink);
             }
             return NotFound();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, string callbackLink = "~/")
         {
             if (id != null)
             {
                 Commutator? commutator = await db.Commutators.FirstOrDefaultAsync(p => p.Id == id);
+                ViewBag.CallbackLink = callbackLink;
                 if (commutator != null) return View(commutator);
             }
 
@@ -181,11 +190,19 @@ namespace CommutatorAccounting.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Commutator commutator)
+        public async Task<IActionResult> Edit(Commutator commutator, string callbackLink = "~/")
         {
-            db.Commutators.Update(commutator);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                db.Commutators.Update(commutator);
+                await db.SaveChangesAsync();
+                return LocalRedirect(callbackLink);
+            }
+            else 
+            {
+                ViewBag.ModelState = ModelState;
+                return View("Edit", commutator);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
